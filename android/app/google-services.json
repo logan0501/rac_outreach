@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "599038025743",
+    "project_id": "rac-project-2e618",
+    "storage_bucket": "rac-project-2e618.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:599038025743:android:333250130800fe734ec37a",
+        "android_client_info": {
+          "package_name": "com.example.rac_outreach"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "599038025743-5js6drcj011ju9gajomvfgfc3mad6ak7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNnZu9LywsMRuXmluyq7LEqVO7tSNYBf4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "599038025743-5js6drcj011ju9gajomvfgfc3mad6ak7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
