@@ -34,7 +34,7 @@ class _AddItemState extends State<AddItem> {
 
   @override
   Widget build(BuildContext context) {
-    print("hello"+task);
+
     return Center(
       child: Container(
         margin: EdgeInsets.all(10),
@@ -46,7 +46,7 @@ class _AddItemState extends State<AddItem> {
                 return TaskListTile(text:'loading');
               }
               return TaskListTile(
-                text: task??"hello",
+                text: task??"You are free",
                 deletetask: () async{
                   setState(() {
 
@@ -60,7 +60,7 @@ class _AddItemState extends State<AddItem> {
                     }
                     return value.data()['name'].toString();
                   });
-                  await dataref.collection('tasks').doc(FirebaseAuth.instance.currentUser.uid).set({'taskname':newtask,'name':name});
+                  await dataref.collection('tasks').doc(FirebaseAuth.instance.currentUser.uid).set({'taskname':newtask??"Available",'name':name});
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Sucessfully Added')));
 
                 },
@@ -89,7 +89,7 @@ class _AddItemState extends State<AddItem> {
 
                         });
                         SharedPreferences prefs = await SharedPreferences.getInstance();
-                        prefs.setString('data',task);
+                        prefs.setString('data',task??"You are free");
                         print("data set");
                         String name = await FirebaseFirestore.instance.collection('outreach').doc(FirebaseAuth.instance.currentUser.uid).get().then((value){
                           if(value.exists){

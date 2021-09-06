@@ -33,7 +33,7 @@ dependencies:
   cloud_firestore: ^2.3.0
   shared_preferences: ^2.0.6
   flutter_native_splash: ^1.2.0
-
+  url_launcher: ^6.0.9
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 class ViewFDetails extends StatefulWidget {
   @override
   _ViewFDetailsState createState() => _ViewFDetailsState();
@@ -13,6 +14,7 @@ class _ViewFDetailsState extends State<ViewFDetails> {
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
       padding: EdgeInsets.all(10),
       child: Column(
@@ -37,9 +39,19 @@ class _ViewFDetailsState extends State<ViewFDetails> {
 
 
                     return  ListTile(
+                      key:Key(document.id),
                       title: Text(data['name']),
                       subtitle: Text(data['taskname']??"Available"),
-                      trailing: IconButton(icon: Icon(Icons.call),),
+                      trailing: IconButton(icon: Icon(Icons.call),onPressed: (){
+                        FirebaseFirestore.instance.collection("outreach").doc(document.id).get().then((value)async{
+                  print(value.data());
+                  var _url = 'tel:${value.data()['call']}';
+                  await canLaunch(_url) ? await launch(_url) : throw 'Could not launch $_url';
+
+                       }).catchError((onError){print(onError);});
+                        // if(data['name']== newdata['name']){
+                       // }
+                           },),
                     );
                   }).toList(),
                 ),
